@@ -29,8 +29,22 @@ They are not captured live responses, because this build environment had no acce
 `apksigner verify` passed for all six APKs (v2 scheme). CI release APKs are signed with the debug key, because CI
 has no release keystore unless you add the secrets described in BUILD.md.
 
-The `smoke-test` job installs the **release** APK on an API 34 emulator, launches it, shares a link into it, and
-fails on any crash or if the engine does not report "Engine ready".
+### Release APK on an emulator (CI job `smoke-test`, run 36790679073): PASS
+
+The universal **release** APK was installed on an Android 14 (API 34, x86_64) emulator:
+
+| Step | Result |
+|---|---|
+| Install | Success |
+| Cold start of MainActivity | 3.9 s, no crash |
+| Engine init (Python + yt-dlp + ffmpeg unpacked from native libs) | `SaveItEngine: Engine ready` about 10 s after launch |
+| Share-sheet intent `ACTION_SEND text/plain` "Look at this https://www.pinterest.com/pin/1084663891475263837/ via Pinterest" | Delivered to the running activity; URL extracted from the surrounding text |
+| On-device extraction | `SaveItHome: Resolved PINTEREST via pinterest-resource: 1 item(s)` about 3 s after the share |
+| Crashes (`FATAL EXCEPTION`) | none |
+
+Not covered by automation: tapping through the preview sheet into the foreground download service and
+saving to MediaStore on a device. The download pipeline itself is the same `:core` code the verifier exercises
+above.
 
 ## Real-URL verification (GitHub Actions run 36788982793, yt-dlp 2025.11.12, quality Best)
 
