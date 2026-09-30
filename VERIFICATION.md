@@ -15,6 +15,33 @@
 The parser fixtures are hand-built from each platform's response structure (the same fields yt-dlp reads).
 They are not captured live responses, because this build environment had no access to the platforms.
 
-## Real-URL verification
+## Real-URL verification (GitHub Actions run 36788982793, yt-dlp 2025.11.12, quality Best)
 
-See the table below (filled from the verifier run).
+The verifier runs the app's resolver and downloader and inspects every file with ffprobe. It ran on GitHub's
+Ubuntu runners because this build environment couldn't reach the platforms.
+
+| Platform | Type | Result | Notes |
+|---|---|---|---|
+| Reddit | video ×2 | NEEDS LOGIN | Reddit answered 403 to the GitHub datacenter IP (`.json` API and yt-dlp alike). Expected from cloud IPs; retest from a phone or home connection. |
+| Reddit | image / gallery / GIF | NOT RUN | No stable public URL yet |
+| X | multi (2 videos) | **PASS** | via x-syndication: 2 × MP4 720×1280, H.264 + AAC, 113.5 s and 102.2 s |
+| X | video | FAIL (dead post) | 2015 "Amplify" card video; the host domain no longer exists (yt-dlp: HTTP 500 Domain Not Found) |
+| X | GIF | FAIL (dead post) | "This Post was deleted by the Post author" |
+| X | image | NOT RUN | No URL yet |
+| Instagram | reel / carousel | NEEDS LOGIN | Instagram serves nothing to logged-out datacenter IPs (yt-dlp: "rate-limit reached or login required") |
+| Instagram | image | NOT RUN | No URL yet |
+| TikTok | video | FAIL | TikTok reported "Video unavailable" / "IP blocked" to the runner; likely IP blocking, not confirmed |
+| TikTok | short link | FAIL (dead link) | `vm.tiktok.com/ZTR45GpSF` now redirects to the home page. Now reported as "link expired" instead of "unsupported" |
+| TikTok | slideshow | NOT RUN | No URL yet |
+| Snapchat | Spotlight | FAIL (dead post) | HTTP 404, the Spotlight was removed |
+| Snapchat | public story | NOT RUN | No URL yet |
+| Facebook | watch video | **PASS** | via yt-dlp: MP4 720×1280, H.264 + AAC, 136.2 s |
+| Facebook | reel | **PASS** | via yt-dlp: MP4 480×848, VP9 + AAC, 9.6 s |
+| Facebook | photo | NOT RUN | No URL yet |
+| Pinterest | video pin ×2 | **PASS** | via pinterest-resource (direct): MP4 1080×1920 H.264 + AAC 57.7 s; MP4 540×960 H.264 + AAC 14.9 s |
+| Pinterest | image / idea pin | NOT RUN | No URL yet |
+
+**Summary:** all 5 downloads from live posts passed (X, Facebook, Pinterest), each with video and audio. Reddit
+and Instagram refuse cloud IPs, so they need a run from a residential connection (see BUILD.md). The candidate
+URLs from yt-dlp's test suite for X video/GIF, TikTok and Snapchat are dead and need replacing. Rows marked
+NOT RUN need real public post URLs.

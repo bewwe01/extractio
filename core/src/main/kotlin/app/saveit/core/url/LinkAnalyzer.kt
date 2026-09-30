@@ -91,6 +91,16 @@ class LinkAnalyzer(private val resolver: ShortLinkResolver) {
         }
         val platform = PlatformDetector.detect(url)
             ?: throw SaveItException(ErrorKind.UNSUPPORTED_URL, null, "Link points to an unsupported site: ${url.substringBefore('?')}")
+        // Expired short links (TikTok, Pinterest, Snapchat) redirect to the platform's home page.
+        if (found != url && isHomePage(url)) {
+            throw SaveItException(ErrorKind.DELETED, platform, "This short link has expired or the post was removed")
+        }
         return PreparedLink(url, platform, text)
+    }
+
+    private fun isHomePage(url: String): Boolean {
+        val u = url.toHttpUrlOrNull() ?: return false
+        val segs = u.pathSegments.filter { it.isNotEmpty() }
+        return segs.isEmpty() || (segs.size == 1 && segs[0] in setOf("foryou", "explore", "home", "login", "404"))
     }
 }

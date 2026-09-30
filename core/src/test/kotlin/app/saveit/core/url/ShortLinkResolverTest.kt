@@ -69,6 +69,17 @@ class ShortLinkResolverTest {
         }
     }
 
+    @Test fun expiredShortLinkToHomePageIsReportedAsDeleted() = runTest {
+        fake.redirect("https://vm.tiktok.com/ZTR45GpSF/", "https://www.tiktok.com/")
+        try {
+            analyzer.prepare("https://vm.tiktok.com/ZTR45GpSF/")
+            fail("expected error")
+        } catch (e: SaveItException) {
+            assertEquals(ErrorKind.DELETED, e.kind)
+            assertEquals(Platform.TIKTOK, e.platform)
+        }
+    }
+
     @Test fun unsupportedText() = runTest {
         try {
             analyzer.prepare("hello https://example.com")
