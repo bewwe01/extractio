@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SaveIt</string>
+    <string name="share_target_label">Save with SaveIt</string>
+    <string name="notification_channel_downloads">Downloads</string>
+    <string name="notification_channel_downloads_desc">Progress of running downloads</string>
+    <string name="notification_channel_results">Finished downloads</string>
+    <string name="notification_cancel">Cancel</string>
+</resources>

@@ -1,0 +1,63 @@
+name: Android build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Accept Android SDK licenses
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+
+      - name: Optional release key from repository secrets
+        env:
+          KEYSTORE_BASE64: ${{ secrets.SAVEIT_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.SAVEIT_KEYSTORE_PASSWORD }}
+        if: env.KEYSTORE_BASE64 != ''
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 -d > saveit-release.jks
+          printf 'storeFile=saveit-release.jks\nstorePassword=%s\nkeyAlias=saveit\nkeyPassword=%s\n' "$KEYSTORE_PASSWORD" "$KEYSTORE_PASSWORD" > keystore.properties
+
+      - name: Unit tests, lint, debug + release APKs
+        run: ./gradlew test lintDebug assembleDebug assembleRelease --stacktrace
+
+      - name: Verify APK signatures and packaged engine
+        run: |
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          for apk in app/build/outputs/apk/*/*.apk; do
+            echo "== $apk ($(du -h "$apk" | cut -f1))"
+            "$BT/apksigner" verify --print-certs "$apk" | head -3
+            unzip -l "$apk" | grep -E "lib/.*/lib(python|ffmpeg|ffprobe|qjs)" | awk '{print $4}' | sort | head -20
+          done
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: saveit-apks
+          path: app/build/outputs/apk/**/*.apk
+          if-no-files-found: ignore
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reports
+          path: |
+            app/build/reports/
+            core/build/reports/
+          if-no-files-found: ignore

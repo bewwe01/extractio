@@ -88,4 +88,16 @@ class MediaResolverTest {
         val post = MediaResolver(fake.http, null).resolve("https://pin.it/x".let { "https://www.pinterest.com/pin/333/" })
         assertEquals(3, post.items.size)
     }
+
+    @Test fun networkFailureWhileResolvingShortLinkIsClassified() = runTest {
+        // FakeHttp answers unknown hosts with 599 → resolver keeps the short link; simulate a hard IO failure instead.
+        val broken = app.saveit.core.net.Http.create { addInterceptor { throw java.io.IOException("Unexpected response code for CONNECT: 403") } }
+        try {
+            MediaResolver(broken, null).resolve("https://vm.tiktok.com/ZTR45GpSF/")
+            fail()
+        } catch (e: SaveItException) {
+            assertEquals(ErrorKind.NETWORK, e.kind)
+            assertEquals(Platform.TIKTOK, e.platform)
+        }
+    }
 }

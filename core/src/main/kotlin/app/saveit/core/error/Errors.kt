@@ -133,7 +133,8 @@ object ErrorClassifier {
         ErrorKind.NETWORK to Regex(
             "Unable to download webpage.*(Errno|timed out|resolve)|Failed to resolve|Temporary failure in name resolution|" +
                 "Name or service not known|No address associated|Network is unreachable|Connection (refused|reset)|" +
-                "timed out|SSL: |CERTIFICATE_VERIFY_FAILED|UnknownHost|ConnectException|SocketTimeout",
+                "timed out|SSL: |CERTIFICATE_VERIFY_FAILED|UnknownHost|ConnectException|SocketTimeout|Unable to connect|" +
+                "Tunnel connection failed|Connection aborted|RemoteDisconnected|Network is down",
             RegexOption.IGNORE_CASE,
         ),
         ErrorKind.ENGINE_OUTDATED to Regex(

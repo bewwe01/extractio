@@ -50,7 +50,14 @@ class MediaResolver(
     var lastAttempts: List<ResolveAttempt> = emptyList()
         private set
 
-    suspend fun prepare(text: String): PreparedLink = analyzer.prepare(text)
+    /** Share text → canonical post URL. Network failures while following short links become [SaveItException]s. */
+    suspend fun prepare(text: String): PreparedLink = try {
+        analyzer.prepare(text)
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        throw ErrorClassifier.toException(e, app.saveit.core.url.UrlExtractor.findFirstSupported(text)?.let(app.saveit.core.url.PlatformDetector::detect))
+    }
 
     suspend fun resolve(text: String): PostInfo = resolve(prepare(text))
 

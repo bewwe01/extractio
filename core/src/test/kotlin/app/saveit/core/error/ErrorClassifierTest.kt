@@ -24,6 +24,7 @@ class ErrorClassifierTest {
         assertEquals(ErrorKind.DELETED, k("ERROR: [Pinterest] 1: Unable to download JSON metadata: HTTP Error 404: Not Found"))
         assertEquals(ErrorKind.NETWORK, k("ERROR: [Reddit] x: Unable to download webpage: <urlopen error [Errno -3] Temporary failure in name resolution>"))
         assertEquals(ErrorKind.RATE_LIMITED, k("ERROR: [Instagram] x: Unable to download JSON metadata: HTTP Error 429: Too Many Requests"))
+        assertEquals(ErrorKind.NETWORK, k("ERROR: [TikTok] 674: Unable to download webpage: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden'))"))
         assertEquals(ErrorKind.UNKNOWN, k("something odd"))
     }
 

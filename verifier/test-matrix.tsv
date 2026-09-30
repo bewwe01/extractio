@@ -1,0 +1,31 @@
+# SaveIt real-URL verification matrix.
+# Columns (tab separated): platform  type  expected_items  url  note
+#   type:            video | image | gif | multi | slideshow
+#   expected_items:  number of media files the post must produce ("-" = don't check)
+# Rows whose url is "ASK" have no known-stable public post yet: replace with a real link before running.
+# Candidate URLs come from yt-dlp's own extractor test-suite (public posts it tests against); posts can
+# disappear, so a DELETED result for a candidate means "pick another URL", not "extractor broken".
+reddit	video	1	https://www.reddit.com/r/videos/comments/6rrwyj/that_small_heart_attack/	v.redd.it video, separate DASH audio (yt-dlp test)
+reddit	video	1	https://www.reddit.com/r/aww/comments/90bu6w/heat_index_was_110_degrees_so_we_offered_him_a/	v.redd.it video (yt-dlp test)
+reddit	image	1	ASK	single i.redd.it image post
+reddit	multi	-	ASK	gallery post (reddit.com/gallery/...)
+reddit	gif	1	ASK	GIF post (i.redd.it/*.gif)
+x	video	1	https://twitter.com/starwars/status/665052190608723968	single video (yt-dlp test)
+x	multi	2	https://twitter.com/CTVJLaidlaw/status/1600649710662213632	two videos in one post (yt-dlp test)
+x	gif	1	https://twitter.com/giphz/status/657991469417025536/photo/1	animated GIF → MP4 (yt-dlp test)
+x	image	-	ASK	photo post (1-4 photos)
+instagram	video	1	https://www.instagram.com/reel/Chunk8-jurw/	reel (yt-dlp test)
+instagram	multi	-	https://www.instagram.com/p/BQ0eAlwhDrw/	carousel (yt-dlp test)
+instagram	image	1	ASK	single photo post
+tiktok	video	1	https://www.tiktok.com/@leenabhushan/video/6748451240264420610	video (yt-dlp test)
+tiktok	video	1	https://vm.tiktok.com/ZTR45GpSF/	short link (yt-dlp test)
+tiktok	slideshow	-	ASK	photo-mode slideshow (/photo/ link)
+snapchat	video	1	https://www.snapchat.com/spotlight/W7_EDlXWTBiXAEEniNoMPwAAYcnVjYWdwcGV1AZEaIYn5AZEaIYnrAAAAAQ	Spotlight (yt-dlp test)
+snapchat	multi	-	ASK	public story / public profile (snapchat.com/add/<user>)
+facebook	video	1	https://www.facebook.com/watch/?v=647537299265662	watch video (yt-dlp test)
+facebook	video	1	https://www.facebook.com/reel/1195289147628387	reel (yt-dlp test)
+facebook	image	-	ASK	public photo post
+pinterest	video	1	https://www.pinterest.com/pin/664281013778109217/	video pin (yt-dlp test)
+pinterest	video	1	https://www.pinterest.com/pin/1084663891475263837/	pin (yt-dlp test)
+pinterest	image	1	ASK	image pin (checks /originals/)
+pinterest	multi	-	ASK	idea pin or carousel pin

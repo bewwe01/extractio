@@ -1,0 +1,46 @@
+name: Verify real URLs
+
+# Runs the real download path (same resolver + downloader the app uses, with yt-dlp and ffmpeg) against
+# the public posts in verifier/test-matrix.tsv and checks every output with ffprobe.
+# Note: some platforms (Reddit, Instagram) often block cloud/datacenter IPs; failures marked NETWORK or
+# RATE_LIMITED here may pass from a home connection (run the verifier locally, see BUILD.md).
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Optional single URL to verify instead of the whole matrix"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install yt-dlp (same version the app bundles) and ffmpeg
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+          pipx install "yt-dlp==2025.11.12"
+          yt-dlp --version && ffprobe -version | head -1
+      - name: Run verifier
+        run: |
+          ./gradlew -p tools/jvm-build :verifier:installDist
+          if [ -n "${{ github.event.inputs.url }}" ]; then
+            verifier/build/install/verifier/bin/verifier --url "${{ github.event.inputs.url }}" || true
+          else
+            verifier/build/install/verifier/bin/verifier verifier/test-matrix.tsv || true
+          fi
+          cat verification-output/report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-output
+          path: verification-output/
