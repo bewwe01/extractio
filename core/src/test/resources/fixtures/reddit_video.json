@@ -1,0 +1,53 @@
+[
+ {
+  "kind": "Listing",
+  "data": {
+   "children": [
+    {
+     "kind": "t3",
+     "data": {
+      "id": "1vid01",
+      "title": "Cat learns to open doors",
+      "author": "catperson",
+      "permalink": "/r/aww/comments/1vid01/cat_learns/",
+      "url": "https://v.redd.it/vv123abc",
+      "is_video": true,
+      "post_hint": "hosted:video",
+      "created_utc": 1727000100.0,
+      "preview": {
+       "images": [
+        {
+         "source": {
+          "url": "https://external-preview.redd.it/thumb.jpg?s=1",
+          "width": 1080,
+          "height": 1920
+         }
+        }
+       ]
+      },
+      "secure_media": {
+       "reddit_video": {
+        "bitrate_kbps": 5000,
+        "fallback_url": "https://v.redd.it/vv123abc/CMAF_1080.mp4?source=fallback",
+        "has_audio": true,
+        "height": 1920,
+        "width": 1080,
+        "dash_url": "https://v.redd.it/vv123abc/DASHPlaylist.mpd?a=1&v=1&f=sd",
+        "duration": 34,
+        "hls_url": "https://v.redd.it/vv123abc/HLSPlaylist.m3u8?a=1",
+        "is_gif": false,
+        "transcoding_status": "completed"
+       }
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "kind": "Listing",
+  "data": {
+   "children": []
+  }
+ }
+]

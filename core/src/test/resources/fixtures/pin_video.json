@@ -1,0 +1,39 @@
+{
+ "resource_response": {
+  "status": "success",
+  "code": 0,
+  "data": {
+   "id": "222",
+   "title": "Recipe video",
+   "images": {
+    "orig": {
+     "url": "https://i.pinimg.com/originals/11/22/33/vidcover.jpg",
+     "width": 720,
+     "height": 1280
+    }
+   },
+   "videos": {
+    "video_list": {
+     "V_HLSV4": {
+      "url": "https://v1.pinimg.com/videos/mc/hls/aa/bb/cc/x.m3u8",
+      "width": 720,
+      "height": 1280,
+      "duration": 30000
+     },
+     "V_720P": {
+      "url": "https://v1.pinimg.com/videos/mc/720p/aa/bb/cc/x.mp4",
+      "width": 720,
+      "height": 1280,
+      "duration": 30000
+     },
+     "V_EXP4": {
+      "url": "https://v1.pinimg.com/videos/mc/expMp4/aa/bb/cc/x_t4.mp4",
+      "width": 360,
+      "height": 640,
+      "duration": 30000
+     }
+    }
+   }
+  }
+ }
+}

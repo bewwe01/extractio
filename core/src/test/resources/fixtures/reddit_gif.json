@@ -1,0 +1,37 @@
+[
+ {
+  "kind": "Listing",
+  "data": {
+   "children": [
+    {
+     "kind": "t3",
+     "data": {
+      "id": "1gif01",
+      "title": "Funny gif",
+      "author": "gifguy",
+      "permalink": "/r/gifs/comments/1gif01/funny/",
+      "url": "https://i.redd.it/fun42.gif",
+      "post_hint": "image",
+      "preview": {
+       "images": [
+        {
+         "source": {
+          "url": "https://preview.redd.it/fun42.gif?s=1",
+          "width": 400,
+          "height": 300
+         }
+        }
+       ]
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "kind": "Listing",
+  "data": {
+   "children": []
+  }
+ }
+]

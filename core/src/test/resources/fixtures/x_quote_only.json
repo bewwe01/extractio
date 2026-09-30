@@ -1,0 +1,21 @@
+{
+ "__typename": "Tweet",
+ "id_str": "1629307668568633344",
+ "text": "look at this",
+ "user": {
+  "screen_name": "quoter"
+ },
+ "quoted_tweet": {
+  "id_str": "1",
+  "mediaDetails": [
+   {
+    "type": "photo",
+    "media_url_https": "https://pbs.twimg.com/media/QQQ.jpg",
+    "original_info": {
+     "width": 800,
+     "height": 600
+    }
+   }
+  ]
+ }
+}

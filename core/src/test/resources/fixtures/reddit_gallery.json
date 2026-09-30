@@ -1,0 +1,106 @@
+[
+ {
+  "kind": "Listing",
+  "data": {
+   "children": [
+    {
+     "kind": "t3",
+     "data": {
+      "id": "1gal01",
+      "title": "Three photos from my hike",
+      "author": "hiker42",
+      "subreddit": "EarthPorn",
+      "permalink": "/r/EarthPorn/comments/1gal01/three_photos/",
+      "url": "https://www.reddit.com/gallery/1gal01",
+      "is_gallery": true,
+      "created_utc": 1727000000.0,
+      "post_hint": null,
+      "gallery_data": {
+       "items": [
+        {
+         "media_id": "aaa111",
+         "id": 1,
+         "caption": "Summit"
+        },
+        {
+         "media_id": "bbb222",
+         "id": 2
+        },
+        {
+         "media_id": "ccc333",
+         "id": 3
+        },
+        {
+         "media_id": "ddd444",
+         "id": 4
+        }
+       ]
+      },
+      "media_metadata": {
+       "bbb222": {
+        "status": "valid",
+        "e": "Image",
+        "m": "image/png",
+        "p": [
+         {
+          "y": 108,
+          "x": 108,
+          "u": "https://preview.redd.it/bbb222.png?width=108&s=x"
+         }
+        ],
+        "s": {
+         "y": 3000,
+         "x": 4000,
+         "u": "https://preview.redd.it/bbb222.png?width=4000&format=png&auto=webp&s=sig2"
+        },
+        "id": "bbb222"
+       },
+       "aaa111": {
+        "status": "valid",
+        "e": "Image",
+        "m": "image/jpg",
+        "p": [
+         {
+          "y": 81,
+          "x": 108,
+          "u": "https://preview.redd.it/aaa111.jpg?width=108&s=x"
+         }
+        ],
+        "s": {
+         "y": 3024,
+         "x": 4032,
+         "u": "https://preview.redd.it/aaa111.jpg?width=4032&format=pjpg&auto=webp&s=sig1"
+        },
+        "id": "aaa111"
+       },
+       "ccc333": {
+        "status": "valid",
+        "e": "AnimatedImage",
+        "m": "image/gif",
+        "p": [],
+        "s": {
+         "y": 480,
+         "x": 640,
+         "gif": "https://i.redd.it/ccc333.gif",
+         "mp4": "https://preview.redd.it/ccc333.gif?format=mp4&s=sig3"
+        },
+        "id": "ccc333"
+       },
+       "ddd444": {
+        "status": "failed",
+        "e": "Image",
+        "id": "ddd444"
+       }
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "kind": "Listing",
+  "data": {
+   "children": []
+  }
+ }
+]

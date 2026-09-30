@@ -1,0 +1,66 @@
+{
+ "_type": "playlist",
+ "id": "C8abcDEF123",
+ "title": "Post by wildlife_photos",
+ "uploader": "Wildlife Photos",
+ "channel": "wildlife_photos",
+ "webpage_url": "https://www.instagram.com/p/C8abcDEF123/",
+ "entries": [
+  {
+   "id": "C8child0",
+   "title": "Video by wildlife_photos",
+   "formats": [],
+   "thumbnails": [
+    {
+     "url": "https://scontent.cdninstagram.com/c0_640.jpg",
+     "width": 640,
+     "height": 800
+    },
+    {
+     "url": "https://scontent.cdninstagram.com/c0_1440.jpg",
+     "width": 1440,
+     "height": 1800
+    }
+   ]
+  },
+  {
+   "id": "C8child1",
+   "title": "Video by wildlife_photos",
+   "duration": 12.5,
+   "formats": [
+    {
+     "format_id": "dash-v720",
+     "url": "https://x/v720.mp4",
+     "ext": "mp4",
+     "vcodec": "avc1.4d401f",
+     "acodec": "none",
+     "width": 720,
+     "height": 1280,
+     "tbr": 1500
+    },
+    {
+     "format_id": "dash-a",
+     "url": "https://x/a.m4a",
+     "ext": "m4a",
+     "vcodec": "none",
+     "acodec": "mp4a.40.2",
+     "tbr": 128
+    },
+    {
+     "format_id": "101",
+     "url": "https://x/v1080.mp4",
+     "ext": "mp4",
+     "width": 1080,
+     "height": 1920
+    }
+   ],
+   "thumbnails": [
+    {
+     "url": "https://scontent.cdninstagram.com/c1.jpg",
+     "width": 1080,
+     "height": 1920
+    }
+   ]
+  }
+ ]
+}

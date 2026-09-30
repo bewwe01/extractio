@@ -1,0 +1,47 @@
+[
+ {
+  "kind": "Listing",
+  "data": {
+   "children": [
+    {
+     "kind": "t3",
+     "data": {
+      "id": "1rg001",
+      "title": "clip",
+      "author": "u1",
+      "permalink": "/r/x/comments/1rg001/clip/",
+      "url": "https://www.redgifs.com/watch/happyblueduck",
+      "post_hint": "rich:video",
+      "preview": {
+       "images": [
+        {
+         "source": {
+          "url": "https://external-preview.redd.it/p.jpg",
+          "width": 1280,
+          "height": 720
+         }
+        }
+       ],
+       "reddit_video_preview": {
+        "fallback_url": "https://v.redd.it/prev1/CMAF_720.mp4",
+        "height": 720,
+        "width": 1280,
+        "is_gif": true
+       }
+      },
+      "secure_media": {
+       "type": "redgifs.com",
+       "oembed": {}
+      }
+     }
+    }
+   ]
+  }
+ },
+ {
+  "kind": "Listing",
+  "data": {
+   "children": []
+  }
+ }
+]

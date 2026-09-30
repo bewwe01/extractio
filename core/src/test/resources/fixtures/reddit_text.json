@@ -1,0 +1,27 @@
+[
+ {
+  "kind": "Listing",
+  "data": {
+   "children": [
+    {
+     "kind": "t3",
+     "data": {
+      "id": "1txt01",
+      "title": "Question",
+      "author": "asker",
+      "permalink": "/r/AskReddit/comments/1txt01/q/",
+      "url": "https://www.reddit.com/r/AskReddit/comments/1txt01/q/",
+      "selftext": "hello",
+      "is_self": true
+     }
+    }
+   ]
+  }
+ },
+ {
+  "kind": "Listing",
+  "data": {
+   "children": []
+  }
+ }
+]

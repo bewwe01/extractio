@@ -1,0 +1,68 @@
+{
+ "__typename": "Tweet",
+ "id_str": "1834812402348290048",
+ "text": "Two photos and a clip https://t.co/abc123",
+ "created_at": "2024-09-14T12:00:00.000Z",
+ "user": {
+  "id_str": "11348282",
+  "name": "SpaceFans",
+  "screen_name": "SpaceFans"
+ },
+ "mediaDetails": [
+  {
+   "type": "photo",
+   "id_str": "1834812390000000001",
+   "media_url_https": "https://pbs.twimg.com/media/GXaAAAAWAAA1bcD.jpg",
+   "original_info": {
+    "width": 4096,
+    "height": 2731
+   }
+  },
+  {
+   "type": "photo",
+   "id_str": "1834812390000000002",
+   "media_url_https": "https://pbs.twimg.com/media/GXaBBBBWBBB2cdE.png",
+   "original_info": {
+    "width": 1200,
+    "height": 1200
+   }
+  },
+  {
+   "type": "video",
+   "id_str": "1834812390000000003",
+   "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1834812390000000003/pu/img/thumb.jpg",
+   "original_info": {
+    "width": 1920,
+    "height": 1080
+   },
+   "video_info": {
+    "aspect_ratio": [
+     16,
+     9
+    ],
+    "duration_millis": 45000,
+    "variants": [
+     {
+      "content_type": "application/x-mpegURL",
+      "url": "https://video.twimg.com/ext_tw_video/1834812390000000003/pu/pl/abc.m3u8?tag=12"
+     },
+     {
+      "bitrate": 256000,
+      "content_type": "video/mp4",
+      "url": "https://video.twimg.com/ext_tw_video/1834812390000000003/pu/vid/avc1/480x270/lo.mp4?tag=12"
+     },
+     {
+      "bitrate": 2176000,
+      "content_type": "video/mp4",
+      "url": "https://video.twimg.com/ext_tw_video/1834812390000000003/pu/vid/avc1/1280x720/mid.mp4?tag=12"
+     },
+     {
+      "bitrate": 10368000,
+      "content_type": "video/mp4",
+      "url": "https://video.twimg.com/ext_tw_video/1834812390000000003/pu/vid/avc1/1920x1080/hi.mp4?tag=12"
+     }
+    ]
+   }
+  }
+ ]
+}

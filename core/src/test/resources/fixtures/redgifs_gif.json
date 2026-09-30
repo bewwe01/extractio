@@ -1,0 +1,13 @@
+{
+ "gif": {
+  "id": "happyblueduck",
+  "width": 1920,
+  "height": 1080,
+  "hasAudio": true,
+  "urls": {
+   "sd": "https://media.redgifs.com/HappyBlueDuck-mobile.mp4",
+   "hd": "https://media.redgifs.com/HappyBlueDuck.mp4",
+   "poster": "https://media.redgifs.com/HappyBlueDuck-poster.jpg"
+  }
+ }
+}

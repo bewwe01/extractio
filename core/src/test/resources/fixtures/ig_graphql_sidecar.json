@@ -1,0 +1,106 @@
+{
+ "data": {
+  "xdt_shortcode_media": {
+   "__typename": "XDTGraphSidecar",
+   "id": "3000",
+   "shortcode": "C8abcDEF123",
+   "owner": {
+    "username": "wildlife_photos"
+   },
+   "display_url": "https://scontent.cdninstagram.com/v/t51/img0_1080.jpg",
+   "taken_at_timestamp": 1727000000,
+   "edge_media_to_caption": {
+    "edges": [
+     {
+      "node": {
+       "text": "A carousel with a clip"
+      }
+     }
+    ]
+   },
+   "edge_sidecar_to_children": {
+    "edges": [
+     {
+      "node": {
+       "__typename": "XDTGraphImage",
+       "id": "300000000000000000",
+       "shortcode": "C8child0",
+       "is_video": false,
+       "dimensions": {
+        "height": 1350,
+        "width": 1080
+       },
+       "display_url": "https://scontent.cdninstagram.com/v/t51/img0_1080.jpg?stp=dst-jpg&_nc_ht=x",
+       "display_resources": [
+        {
+         "src": "https://scontent.cdninstagram.com/v/t51/img0_640.jpg",
+         "config_width": 640,
+         "config_height": 800
+        },
+        {
+         "src": "https://scontent.cdninstagram.com/v/t51/img0_1080.jpg",
+         "config_width": 1080,
+         "config_height": 1350
+        }
+       ]
+      }
+     },
+     {
+      "node": {
+       "__typename": "XDTGraphVideo",
+       "id": "300000000000000001",
+       "shortcode": "C8child1",
+       "is_video": true,
+       "dimensions": {
+        "height": 1350,
+        "width": 1080
+       },
+       "display_url": "https://scontent.cdninstagram.com/v/t51/img1_1080.jpg?stp=dst-jpg&_nc_ht=x",
+       "display_resources": [
+        {
+         "src": "https://scontent.cdninstagram.com/v/t51/img1_640.jpg",
+         "config_width": 640,
+         "config_height": 800
+        },
+        {
+         "src": "https://scontent.cdninstagram.com/v/t51/img1_1080.jpg",
+         "config_width": 1080,
+         "config_height": 1350
+        }
+       ],
+       "video_url": "https://scontent.cdninstagram.com/o1/v/t16/vid1.mp4?efg=x",
+       "has_audio": true,
+       "video_duration": 12.5
+      }
+     },
+     {
+      "node": {
+       "__typename": "XDTGraphImage",
+       "id": "300000000000000002",
+       "shortcode": "C8child2",
+       "is_video": false,
+       "dimensions": {
+        "height": 1350,
+        "width": 1080
+       },
+       "display_url": "https://scontent.cdninstagram.com/v/t51/img2_1080.jpg?stp=dst-jpg&_nc_ht=x",
+       "display_resources": [
+        {
+         "src": "https://scontent.cdninstagram.com/v/t51/img2_640.jpg",
+         "config_width": 640,
+         "config_height": 800
+        },
+        {
+         "src": "https://scontent.cdninstagram.com/v/t51/img2_1080.jpg",
+         "config_width": 1080,
+         "config_height": 1350
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ },
+ "status": "ok"
+}

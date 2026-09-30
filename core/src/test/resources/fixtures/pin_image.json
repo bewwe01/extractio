@@ -1,0 +1,30 @@
+{
+ "resource_response": {
+  "status": "success",
+  "code": 0,
+  "data": {
+   "id": "123456789012345678",
+   "title": "Cozy cabin",
+   "pinner": {
+    "username": "designer"
+   },
+   "images": {
+    "236x": {
+     "url": "https://i.pinimg.com/236x/ab/cd/ef/abcdef0123.jpg",
+     "width": 236,
+     "height": 354
+    },
+    "736x": {
+     "url": "https://i.pinimg.com/736x/ab/cd/ef/abcdef0123.jpg",
+     "width": 736,
+     "height": 1104
+    },
+    "orig": {
+     "url": "https://i.pinimg.com/originals/ab/cd/ef/abcdef0123.png",
+     "width": 1200,
+     "height": 1800
+    }
+   }
+  }
+ }
+}

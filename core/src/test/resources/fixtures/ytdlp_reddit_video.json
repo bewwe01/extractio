@@ -1,0 +1,37 @@
+{
+ "id": "vv123abc",
+ "title": "Cat learns to open doors",
+ "uploader": "catperson",
+ "duration": 34,
+ "webpage_url": "https://www.reddit.com/r/aww/comments/1vid01/cat_learns/",
+ "formats": [
+  {
+   "format_id": "hls-1080",
+   "ext": "mp4",
+   "vcodec": "avc1",
+   "acodec": "none",
+   "height": 1080,
+   "width": 1920,
+   "protocol": "m3u8_native"
+  },
+  {
+   "format_id": "dash-video-720",
+   "ext": "mp4",
+   "vcodec": "avc1",
+   "acodec": "none",
+   "height": 720,
+   "width": 1280
+  },
+  {
+   "format_id": "dash-audio",
+   "ext": "m4a",
+   "vcodec": "none",
+   "acodec": "mp4a.40.2"
+  }
+ ],
+ "thumbnails": [
+  {
+   "url": "https://thumb/1.jpg"
+  }
+ ]
+}

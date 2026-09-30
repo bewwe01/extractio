@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" mediaPresentationDuration="PT34S" type="static">
+ <Period duration="PT34S">
+  <AdaptationSet contentType="video" segmentAlignment="true" subsegmentAlignment="true">
+   <Representation id="1" bandwidth="1200000" codecs="avc1.4d401f" frameRate="30" height="854" mimeType="video/mp4" width="480"><BaseURL>CMAF_480.mp4</BaseURL><SegmentBase indexRange="700-800"><Initialization range="0-699"/></SegmentBase></Representation>
+   <Representation id="2" bandwidth="2400000" codecs="avc1.4d401f" frameRate="30" height="1280" mimeType="video/mp4" width="720"><BaseURL>CMAF_720.mp4</BaseURL></Representation>
+   <Representation id="3" bandwidth="4800000" codecs="avc1.640028" frameRate="30" height="1920" mimeType="video/mp4" width="1080"><BaseURL>CMAF_1080.mp4</BaseURL></Representation>
+  </AdaptationSet>
+  <AdaptationSet contentType="audio" lang="en">
+   <Representation id="5" audioSamplingRate="48000" bandwidth="64000" codecs="mp4a.40.2" mimeType="audio/mp4"><BaseURL>CMAF_AUDIO_64.mp4</BaseURL></Representation>
+   <Representation id="6" audioSamplingRate="48000" bandwidth="128000" codecs="mp4a.40.2" mimeType="audio/mp4"><BaseURL>CMAF_AUDIO_128.mp4</BaseURL></Representation>
+  </AdaptationSet>
+ </Period>
+</MPD>

@@ -1,0 +1,34 @@
+{
+ "data": {
+  "xdt_shortcode_media": {
+   "__typename": "XDTGraphVideo",
+   "id": "300000000000000005",
+   "shortcode": "C9reel555",
+   "is_video": true,
+   "dimensions": {
+    "height": 1350,
+    "width": 1080
+   },
+   "display_url": "https://scontent.cdninstagram.com/v/t51/img5_1080.jpg?stp=dst-jpg&_nc_ht=x",
+   "display_resources": [
+    {
+     "src": "https://scontent.cdninstagram.com/v/t51/img5_640.jpg",
+     "config_width": 640,
+     "config_height": 800
+    },
+    {
+     "src": "https://scontent.cdninstagram.com/v/t51/img5_1080.jpg",
+     "config_width": 1080,
+     "config_height": 1350
+    }
+   ],
+   "video_url": "https://scontent.cdninstagram.com/o1/v/t16/vid5.mp4?efg=x",
+   "has_audio": true,
+   "video_duration": 12.5,
+   "owner": {
+    "username": "creator"
+   }
+  }
+ },
+ "status": "ok"
+}

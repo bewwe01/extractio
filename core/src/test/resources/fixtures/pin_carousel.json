@@ -1,0 +1,40 @@
+{
+ "resource_response": {
+  "status": "success",
+  "code": 0,
+  "data": {
+   "id": "444",
+   "title": "Carousel",
+   "images": {
+    "orig": {
+     "url": "https://i.pinimg.com/originals/c0.jpg"
+    }
+   },
+   "carousel_data": {
+    "carousel_slots": [
+     {
+      "images": {
+       "orig": {
+        "url": "https://i.pinimg.com/originals/c1.jpg",
+        "width": 1000,
+        "height": 1500
+       },
+       "736x": {
+        "url": "https://i.pinimg.com/736x/c1.jpg"
+       }
+      }
+     },
+     {
+      "images": {
+       "736x": {
+        "url": "https://i.pinimg.com/736x/aa/bb/cc/c2.jpg",
+        "width": 736,
+        "height": 1104
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

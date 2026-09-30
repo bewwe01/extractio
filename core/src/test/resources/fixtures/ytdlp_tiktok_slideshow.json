@@ -1,0 +1,16 @@
+{
+ "id": "7300000000000000000",
+ "title": "my trip",
+ "uploader": "traveler",
+ "webpage_url": "https://www.tiktok.com/@traveler/video/7300000000000000000",
+ "formats": [
+  {
+   "format_id": "audio",
+   "url": "https://sf16.tiktokcdn.com/obj/music123.mp3",
+   "ext": "mp3",
+   "vcodec": "none",
+   "acodec": "mp3"
+  }
+ ],
+ "thumbnail": "https://p16/cover.jpeg"
+}

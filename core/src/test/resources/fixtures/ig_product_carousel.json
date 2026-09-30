@@ -1,0 +1,67 @@
+{
+ "items": [
+  {
+   "pk": "3456789",
+   "id": "3456789_111",
+   "code": "C8abcDEF123",
+   "taken_at": 1727000000,
+   "media_type": 8,
+   "user": {
+    "username": "wildlife_photos",
+    "full_name": "Nat"
+   },
+   "caption": {
+    "text": "Product carousel"
+   },
+   "carousel_media": [
+    {
+     "pk": "1",
+     "media_type": 1,
+     "image_versions2": {
+      "candidates": [
+       {
+        "width": 640,
+        "height": 800,
+        "url": "https://scontent.cdninstagram.com/p1_640.jpg"
+       },
+       {
+        "width": 1440,
+        "height": 1800,
+        "url": "https://scontent.cdninstagram.com/p1_1440.jpg"
+       }
+      ]
+     }
+    },
+    {
+     "pk": "2",
+     "media_type": 2,
+     "has_audio": true,
+     "video_duration": 8.0,
+     "image_versions2": {
+      "candidates": [
+       {
+        "width": 1080,
+        "height": 1920,
+        "url": "https://scontent.cdninstagram.com/p2_cover.jpg"
+       }
+      ]
+     },
+     "video_versions": [
+      {
+       "type": 101,
+       "width": 720,
+       "height": 1280,
+       "url": "https://scontent.cdninstagram.com/p2_720.mp4"
+      },
+      {
+       "type": 102,
+       "width": 480,
+       "height": 854,
+       "url": "https://scontent.cdninstagram.com/p2_480.mp4"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

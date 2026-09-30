@@ -1,0 +1,17 @@
+{
+ "resource_response": {
+  "status": "success",
+  "code": 0,
+  "data": {
+   "id": "555",
+   "title": "gif",
+   "images": {
+    "orig": {
+     "url": "https://i.pinimg.com/originals/dd/ee/ff/animated.gif",
+     "width": 480,
+     "height": 270
+    }
+   }
+  }
+ }
+}

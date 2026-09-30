@@ -1,0 +1,29 @@
+{
+ "__typename": "Tweet",
+ "id_str": "1600009362759733248",
+ "text": "gif!",
+ "user": {
+  "screen_name": "giffer",
+  "name": "G"
+ },
+ "mediaDetails": [
+  {
+   "type": "animated_gif",
+   "id_str": "160000936",
+   "media_url_https": "https://pbs.twimg.com/tweet_video_thumb/FjAbC.jpg",
+   "original_info": {
+    "width": 498,
+    "height": 280
+   },
+   "video_info": {
+    "variants": [
+     {
+      "bitrate": 0,
+      "content_type": "video/mp4",
+      "url": "https://video.twimg.com/tweet_video/FjAbC.mp4"
+     }
+    ]
+   }
+  }
+ ]
+}
