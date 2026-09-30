@@ -1,5 +1,6 @@
 package app.saveit.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.saveit.AppContainer
@@ -95,12 +96,15 @@ class HomeViewModel(private val c: AppContainer) : ViewModel() {
             _state.update { it.copy(analyzing = true, error = null, preview = null) }
             try {
                 val post = withContext(Dispatchers.IO) { c.resolver.resolve(text) }
+                Log.i(TAG, "Resolved ${post.platform} via ${post.source}: ${post.items.size} item(s)")
                 lastAnalyzed = UrlExtractor.findFirstSupported(text)
                 _state.update { it.copy(preview = post) }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                _state.update { it.copy(error = ErrorClassifier.toException(e, null)) }
+                val err = ErrorClassifier.toException(e, null)
+                Log.w(TAG, "Analyze failed: ${err.kind} ${err.detail}")
+                _state.update { it.copy(error = err) }
             } finally {
                 _state.update { it.copy(analyzing = false) }
             }
@@ -134,5 +138,9 @@ class HomeViewModel(private val c: AppContainer) : ViewModel() {
             _state.update { it.copy(engineUpdating = false, message = msg, error = it.error?.takeIf { e -> e.kind != ErrorKind.ENGINE_OUTDATED }) }
             if (msg.startsWith("Extractor engine updated")) analyze()
         }
+    }
+
+    companion object {
+        private const val TAG = "SaveItHome"
     }
 }

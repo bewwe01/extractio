@@ -89,13 +89,16 @@ jobs:
             adb logcat -c
             adb shell am start -W -n app.saveit/.MainActivity
             sleep 45
-            adb shell am start -W -a android.intent.action.SEND -t text/plain --es android.intent.extra.TEXT "Look at this https://www.pinterest.com/pin/1084663891475263837/ via Pinterest" -n app.saveit/.MainActivity
-            sleep 30
+            adb shell "am start -W -a android.intent.action.SEND -t text/plain --es android.intent.extra.TEXT 'Look at this https://www.pinterest.com/pin/1084663891475263837/ via Pinterest' -n app.saveit/.MainActivity" | tee share.txt
+            if grep -q "Error" share.txt; then echo "Share intent was not delivered"; exit 1; fi
+            sleep 40
             adb exec-out screencap -p > smoke-screenshot.png
             adb logcat -d > logcat.txt
             grep -E "SaveIt|AndroidRuntime|FATAL" logcat.txt | tail -80 || true
             if grep -q "FATAL EXCEPTION" logcat.txt; then echo "App crashed"; exit 1; fi
             grep -q "Engine ready" logcat.txt || { echo "Engine did not initialize"; exit 1; }
+            grep -qE "SaveItHome: (Resolved|Analyze failed)" logcat.txt || { echo "Shared link was not analyzed"; exit 1; }
+            grep -q "SaveItHome: Resolved PINTEREST" logcat.txt || echo "WARNING: shared Pinterest link did not resolve (see log above)"
             adb shell pidof app.saveit || { echo "App not running"; exit 1; }
       - uses: actions/upload-artifact@v4
         if: always()
