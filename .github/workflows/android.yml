@@ -61,3 +61,47 @@ jobs:
             app/build/reports/
             core/build/reports/
           if-no-files-found: ignore
+
+  # Installs the RELEASE build on an emulator, launches it, shares a link into it and fails on any crash
+  # or if the bundled Python/yt-dlp/ffmpeg engine does not initialize.
+  smoke-test:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: saveit-apks
+          path: apks
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
+          script: |
+            adb install -r "$(find apks -name 'app-universal-release.apk' | head -1)"
+            adb logcat -c
+            adb shell am start -W -n app.saveit/.MainActivity
+            sleep 45
+            adb shell am start -W -a android.intent.action.SEND -t text/plain --es android.intent.extra.TEXT "Look at this https://www.pinterest.com/pin/1084663891475263837/ via Pinterest" -n app.saveit/.MainActivity
+            sleep 30
+            adb exec-out screencap -p > smoke-screenshot.png
+            adb logcat -d > logcat.txt
+            grep -E "SaveIt|AndroidRuntime|FATAL" logcat.txt | tail -80 || true
+            if grep -q "FATAL EXCEPTION" logcat.txt; then echo "App crashed"; exit 1; fi
+            grep -q "Engine ready" logcat.txt || { echo "Engine did not initialize"; exit 1; }
+            adb shell pidof app.saveit || { echo "App not running"; exit 1; }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: smoke-test
+          path: |
+            smoke-screenshot.png
+            logcat.txt
+          if-no-files-found: ignore

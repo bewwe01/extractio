@@ -30,6 +30,7 @@ class AndroidYtDlpEngine(private val context: Context, scope: CoroutineScope) : 
         runCatching {
             YoutubeDL.getInstance().init(context)
             FFmpeg.getInstance().init(context)
+            Log.i(TAG, "Engine ready")
         }.onFailure { Log.e(TAG, "Engine init failed", it) }
     }
 
