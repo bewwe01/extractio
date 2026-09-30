@@ -5,6 +5,11 @@ name: Verify real URLs
 # Note: some platforms (Reddit, Instagram) often block cloud/datacenter IPs; failures marked NETWORK or
 # RATE_LIMITED here may pass from a home connection (run the verifier locally, see BUILD.md).
 on:
+  push:
+    paths:
+      - "core/src/main/**"
+      - "verifier/**"
+      - ".github/workflows/verify-real-urls.yml"
   workflow_dispatch:
     inputs:
       url:
