@@ -42,7 +42,8 @@ Ubuntu runners because this build environment couldn't reach the platforms.
 | Reddit | video ×2 | NEEDS LOGIN | Reddit answered 403 to the GitHub datacenter IP (`.json` API and yt-dlp alike). Expected from cloud IPs; retest from a phone or home connection. |
 | Reddit | image / gallery / GIF | NOT RUN | No stable public URL yet |
 | X | multi (2 videos) | **PASS** | via x-syndication: 2 × MP4 720×1280, H.264 + AAC, 113.5 s and 102.2 s |
-| X | video | FAIL (dead post) | 2015 "Amplify" card video; the host domain no longer exists (yt-dlp: HTTP 500 Domain Not Found) |
+| X | video (user-provided post `DramaAlert/status/2105063117147484566`) | **PASS** | via x-syndication (direct): MP4 1280×720, H.264 + AAC, 19.3 s, 5.7 MB (run 36791020310) |
+| X | video (old candidate) | FAIL (dead post) | 2015 "Amplify" card video; the host domain no longer exists (yt-dlp: HTTP 500 Domain Not Found) |
 | X | GIF | FAIL (dead post) | "This Post was deleted by the Post author" |
 | X | image | NOT RUN | No URL yet |
 | Instagram | reel / carousel | NEEDS LOGIN | Instagram serves nothing to logged-out datacenter IPs (yt-dlp: "rate-limit reached or login required") |
@@ -58,7 +59,7 @@ Ubuntu runners because this build environment couldn't reach the platforms.
 | Pinterest | video pin ×2 | **PASS** | via pinterest-resource (direct): MP4 1080×1920 H.264 + AAC 57.7 s; MP4 540×960 H.264 + AAC 14.9 s |
 | Pinterest | image / idea pin | NOT RUN | No URL yet |
 
-**Summary:** all 5 downloads from live posts passed (X, Facebook, Pinterest), each with video and audio. Reddit
+**Summary:** all 6 downloads from live posts passed (X, Facebook, Pinterest), each with video and audio. Reddit
 and Instagram refuse cloud IPs, so they need a run from a residential connection (see BUILD.md). The candidate
 URLs from yt-dlp's test suite for X video/GIF, TikTok and Snapchat are dead and need replacing. Rows marked
 NOT RUN need real public post URLs.
